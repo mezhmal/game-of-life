@@ -9,7 +9,7 @@ function makeNewField() {
 }
 
 // closeness from 0 to 1
-function initRandom(field, closeness=0.5) {
+function setRandomValues(field, closeness=0.5) {
     return field.map(
         row => row.map(
             cell => Math.floor(Math.random() + closeness)
@@ -49,7 +49,7 @@ function mutate(field) {
     )
 }
 
-epochs.push(initRandom(makeNewField(), 0.3));
+epochs.push(setRandomValues(makeNewField(), 0.3));
 epochs.push(mutate(epochs.slice(-1).pop()));
 
 console.log(epochs[0]);
